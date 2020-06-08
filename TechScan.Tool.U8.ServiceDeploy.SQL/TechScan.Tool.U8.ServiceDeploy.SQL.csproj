@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CBD5BAD6-3547-4CD2-AAED-BE70CDCB5CCE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TechScan.Tool.U8.ServiceDeploy.SQL</RootNamespace>
+    <AssemblyName>TechScan.Tool.U8.ServiceDeploy.SQL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Data.Schema.ScriptDom">
+      <HintPath>..\DLLs\Microsoft.Data.Schema.ScriptDom.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Schema.ScriptDom.Sql">
+      <HintPath>..\DLLs\Microsoft.Data.Schema.ScriptDom.Sql.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Config\DbServerInfo.cs" />
+    <Compile Include="Config\ServerState.cs" />
+    <Compile Include="Config\SQLConfig.cs" />
+    <Compile Include="Enums\AuthTypes.cs" />
+    <Compile Include="Enums\ObjectModes.cs" />
+    <Compile Include="Enums\RecentObjectTypes.cs" />
+    <Compile Include="Enums\WorkModes.cs" />
+    <Compile Include="Impl\Parser.cs" />
+    <Compile Include="Impl\RecentObject.cs" />
+    <Compile Include="Impl\SqlCallResult.cs" />
+    <Compile Include="Impl\SQLDeployHistoryItem.cs" />
+    <Compile Include="Impl\SQLDeployHistoryRepository.cs" />
+    <Compile Include="Impl\SQLDeployParams.cs" />
+    <Compile Include="Impl\SqlFilesSearch.cs" />
+    <Compile Include="Impl\SQLPackageRepository.cs" />
+    <Compile Include="Impl\SqlHelper.cs" />
+    <Compile Include="Impl\SQLMgmtEngine.cs" />
+    <Compile Include="Impl\SQLPackageZipItem.cs" />
+    <Compile Include="Impl\SQLPackageZipParams.cs" />
+    <Compile Include="Impl\SQLPublishRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TechScan.Tool.U8.ServiceDeploy.Base\TechScan.Tool.U8.ServiceDeploy.Base.csproj">
+      <Project>{ef4315b5-f14f-413d-b655-df4e8d7b0903}</Project>
+      <Name>TechScan.Tool.U8.ServiceDeploy.Base</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Utils\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

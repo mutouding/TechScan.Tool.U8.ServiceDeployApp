@@ -1,0 +1,343 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{175EF449-7831-4B97-9B1F-C87C59EF37EB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TechScan.Tool.U8.ServiceDeployWin</RootNamespace>
+    <AssemblyName>TechScan.Tool.U8.ServiceDeployWin</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Control">
+      <HintPath>..\DLLs\Control.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.TextEditor, Version=3.2.1.6466, Culture=neutral, PublicKeyToken=4d61825e8dd49f1a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\ICSharpCode.TextEditor_V3.0\ICSharpCode.TextEditor V3.0\支持T-SQL版本\ICSharpCode.TextEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="LayeredSkin">
+      <HintPath>..\DLLs\LayeredSkin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.Web.Administration, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLLs\Microsoft.Web.Administration.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLLs\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\DLLs\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog.Windows.Forms">
+      <HintPath>..\DLLs\NLog.Windows.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Deploy\frmIISDeploy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Deploy\frmIISDeploy.Designer.cs">
+      <DependentUpon>frmIISDeploy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Deploy\frmSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Deploy\frmSetting.Designer.cs">
+      <DependentUpon>frmSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Deploy\frmZipDeployPackage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Deploy\frmZipDeployPackage.Designer.cs">
+      <DependentUpon>frmZipDeployPackage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Deploy\PackageZipForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Deploy\PackageZipForm.Designer.cs">
+      <DependentUpon>PackageZipForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Deploy\uclZipPackage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Deploy\uclZipPackage.Designer.cs">
+      <DependentUpon>uclZipPackage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Exceptions\InvalidControlDataException.cs" />
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFrm.Designer.cs">
+      <DependentUpon>MainFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FolderSelectDialog.cs" />
+    <Compile Include="Models\MessageBoxEx.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmHistory.Designer.cs">
+      <DependentUpon>frmHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\BaseDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SQL\BaseDialog.Designer.cs">
+      <DependentUpon>BaseDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\ConnectionDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SQL\ConnectionDialog.Designer.cs">
+      <DependentUpon>ConnectionDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\Diff\DiffListText.cs" />
+    <Compile Include="SQL\Diff\DiffResults.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SQL\Diff\Engine.cs" />
+    <Compile Include="SQL\Diff\Structures.cs" />
+    <Compile Include="SQL\Diff\TextLine.cs" />
+    <Compile Include="SQL\DisposableState.cs" />
+    <Compile Include="SQL\frmSQLDeploy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SQL\frmSQLDeploy.Designer.cs">
+      <DependentUpon>frmSQLDeploy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\SqlScriptShowForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SQL\SqlScriptShowForm.Designer.cs">
+      <DependentUpon>SqlScriptShowForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\UserQuery.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SQL\UserQuery.Designer.cs">
+      <DependentUpon>UserQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\UserTableData.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SQL\UserTableData.Designer.cs">
+      <DependentUpon>UserTableData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForm.Designer.cs">
+      <DependentUpon>TestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Util\CodingHelper.cs" />
+    <Compile Include="Util\DeployConfig.cs" />
+    <Compile Include="Util\DeployHelper.cs" />
+    <Compile Include="Util\FormOpUtils.cs" />
+    <Compile Include="Util\InputDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Util\InputDialog.designer.cs">
+      <DependentUpon>InputDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Util\MessagesHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Deploy\frmIISDeploy.resx">
+      <DependentUpon>frmIISDeploy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Deploy\frmSetting.resx">
+      <DependentUpon>frmSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Deploy\frmZipDeployPackage.resx">
+      <DependentUpon>frmZipDeployPackage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Deploy\PackageZipForm.resx">
+      <DependentUpon>PackageZipForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Deploy\uclZipPackage.resx">
+      <DependentUpon>uclZipPackage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFrm.resx">
+      <DependentUpon>MainFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmHistory.resx">
+      <DependentUpon>frmHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SQL\BaseDialog.resx">
+      <DependentUpon>BaseDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SQL\ConnectionDialog.resx">
+      <DependentUpon>ConnectionDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SQL\Diff\DiffResults.resx">
+      <DependentUpon>DiffResults.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SQL\frmSQLDeploy.resx">
+      <DependentUpon>frmSQLDeploy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SQL\SqlScriptShowForm.resx">
+      <DependentUpon>SqlScriptShowForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SQL\UserQuery.resx">
+      <DependentUpon>UserQuery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SQL\UserTableData.resx">
+      <DependentUpon>UserTableData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestForm.resx">
+      <DependentUpon>TestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Util\InputDialog.resx">
+      <DependentUpon>InputDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Util\InputDialog.zh-CN.resx">
+      <DependentUpon>InputDialog.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TechScan.Tool.Controls\TechScan.Tool.Controls.csproj">
+      <Project>{1ed0c03c-eebd-46ed-b963-b3481d7e4462}</Project>
+      <Name>TechScan.Tool.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TechScan.Tool.U8.ServiceDeploy.Base\TechScan.Tool.U8.ServiceDeploy.Base.csproj">
+      <Project>{ef4315b5-f14f-413d-b655-df4e8d7b0903}</Project>
+      <Name>TechScan.Tool.U8.ServiceDeploy.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TechScan.Tool.U8.ServiceDeploy.IIS\TechScan.Tool.U8.ServiceDeploy.IIS.csproj">
+      <Project>{1f849220-0923-49a3-a1a6-2f929b181427}</Project>
+      <Name>TechScan.Tool.U8.ServiceDeploy.IIS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TechScan.Tool.U8.ServiceDeploy.SQL\TechScan.Tool.U8.ServiceDeploy.SQL.csproj">
+      <Project>{cbd5bad6-3547-4cd2-aaed-be70cdcb5cce}</Project>
+      <Name>TechScan.Tool.U8.ServiceDeploy.SQL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\install.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="DefaultPkgs\IIS_Publish_First.zip">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="DefaultPkgs\SQL_Publish_First.zip">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Accelerator2.png" />
+    <EmbeddedResource Include="SQL\TSQL-Mode.xshd" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cross2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gear2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\History2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\List2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\New2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Proxy2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Refresh2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Schedule2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Server.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\server2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Table2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DefaultPkgs\Memo.txt" />
+    <None Include="Resources\findfile.png" />
+    <EmbeddedResource Include="SQL\SyntaxModes.xml" />
+    <None Include="Resources\iispublish2.png" />
+    <None Include="Resources\iispublish1.png" />
+    <None Include="Resources\iispublish3.png" />
+    <None Include="Resources\Excute2.png" />
+    <None Include="Resources\执行.png" />
+    <None Include="Resources\export.png" />
+    <None Include="Resources\copy.png" />
+    <None Include="Resources\fail.png" />
+    <None Include="Resources\warning.png" />
+    <None Include="Resources\success.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
